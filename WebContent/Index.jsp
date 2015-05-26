@@ -140,7 +140,7 @@ body .ui-tooltip {
 		  </div>
 		  <div class="panel-body">
 				<form   action="ServletLogin.do" method="POST"  role="form">
-         <img height="200" width="200" class="img img-responsive" alt="" src="Images/logo.png">
+         <img height="200" width="200" class="img img-responsive" alt="" src="Images/logo 3.jpg">
 		<br>
 		<br>
 		<div class="input-group">
