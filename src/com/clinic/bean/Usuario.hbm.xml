@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.clinic.bean.Usuario" table="usuario" >
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="idUsuario" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreCompleto" type="string">
+            <column name="nombreCompleto"  />
+        </property>
+        
+        <property name="nickName" type="string">
+            <column name="nickName"  />
+        </property>
+        <property name="pass" type="string">
+            <column name="pass"  />
+        </property>        
+    </class>
+</hibernate-mapping>
