@@ -25,9 +25,9 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
     <li  title="pagina principal"><a href="IndexCoordinador.do"><span  class="glyphicon glyphicon-home"></span> Inicio</a></li>
-    <li  title="busca alumnos"><a href="ServletListarForSearch.do?llenar=vacio&DarNotas=vacio"><span  class="glyphicon glyphicon-align-left"></span> Citas</a></li>
-    <li  title="asigna cursos"><a href="ListarDatos.do"><span  class="glyphicon glyphicon-th-list"></span> Pacientes</a></li>
-    <li title="Genera los Reportes"><a  href="ListarGrupos.do" ><span  class="glyphicon glyphicon-download-alt"></span> Stock Medicamentos</a></li>
+    <li  title="Citas"><a href="ServletListarForSearch.do?llenar=vacio&DarNotas=vacio"><span  class="glyphicon glyphicon-align-left"></span> Citas</a></li>
+    <li  title="Pacientes"><a href="ListarDatos.do"><span  class="glyphicon glyphicon-th-list"></span> Pacientes</a></li>
+    <li title="Medicamentos"><a  href="ListarGrupos.do" ><span  class="glyphicon glyphicon-download-alt"></span> Stock Medicamentos</a></li>
       <li class="dropdown">
         <a  title="mira tu perfil" href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> ${usuario.getNombreCompleto()}  <b class="caret"></b></a>
         <ul class="dropdown-menu">

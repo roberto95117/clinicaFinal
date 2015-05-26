@@ -17,6 +17,9 @@
         </property>
         <property name="pass" type="string">
             <column name="pass"  />
-        </property>        
+        </property>   
+        <property name="existe" type="java.lang.Integer">
+        	<column name="existe"/>
+        </property>     
     </class>
 </hibernate-mapping>

@@ -16,7 +16,7 @@ public class Usuario  implements java.io.Serializable {
 	private String nombreCompleto;
 	private String pass;
 	private String nickName;
-	
+	private int existe;
 		
     public int getIdUsuario() {
 		return idUsuario;
@@ -60,6 +60,13 @@ public class Usuario  implements java.io.Serializable {
 	}
 
 
+	public void setExiste(int exs){
+		this.existe=exs;
+	}
+	
+	public int getExiste(){
+		return existe;
+	}
 
 
 	/**
@@ -74,6 +81,18 @@ public class Usuario  implements java.io.Serializable {
 		this.nickName = nick;
 		this.pass = pass;
 	}
+	
+	public Usuario(int idUsuario, String nombre, String nick, String pass,int existe) {
+		super();
+		this.idUsuario = idUsuario;
+		this.nombreCompleto = nombre;
+		this.nickName = nick;
+		this.pass = pass;
+		this.existe=existe;
+	}
+	
+	
+	
 
 
 	public Usuario() {
