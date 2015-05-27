@@ -136,11 +136,11 @@ body .ui-tooltip {
 <center id="effect">
 	<div   style="margin-top: 5%;position: center center" class="panel panel-primary form-signin" >
 		  <div class="panel-heading">
-               <h3 class="panel-title" style="font-family: space-age">Health System</h3>
+               <h3 class="panel-title" style="font-family: space-age"></h3>
 		  </div>
 		  <div class="panel-body">
 				<form   action="ServletLogin.do" method="POST"  role="form">
-         <img height="200" width="200" class="img img-responsive" alt="" src="Images/logo 3.jpg">
+         <img height="200" width="200" class="img img-responsive" alt="" src="Images/logo 1.jpg">
 		<br>
 		<br>
 		<div class="input-group">
