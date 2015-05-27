@@ -1,5 +1,6 @@
 package com.clinic.bean;
 
+public class Medicina implements java.io.Serializable {
 	private int idMedicina;
 	private String nombre;
 	private String precio;
@@ -88,4 +89,3 @@ package com.clinic.bean;
 	
 	
 }
-
