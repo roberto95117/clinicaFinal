@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.clinic.bean.Medicacion" table="Medicacion" >
+        <id name="idMedicacion" type="java.lang.Integer">
+            <column name="idMedicacion" />
+            <generator class="identity" />
+        </id>
+     	<many-to-one name="idCita" class="com.clinic.bean.Cita" lazy="false">
+            <column name="idCita" not-null="true" />
+        </many-to-one>       
+        <property name="existe" type="java.lang.Integer">
+        	<column name="existe"/>
+        </property>     
+    </class>
+</hibernate-mapping>

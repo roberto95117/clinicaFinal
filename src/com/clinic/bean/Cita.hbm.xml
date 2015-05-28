@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.clinic.bean.Cita" table="cita" >
+        <id name="idCita" type="java.lang.Integer">
+            <column name="idCita" />
+            <generator class="identity" />
+        </id>
+        <property name="horaFecha" type="string">
+            <column name="horaFecha"  />
+        </property>
+        
+        <property name="cumplido" type="string">
+            <column name="cumplido"  />
+        </property>
+     	<many-to-one name="idPaciente" class="com.clinic.bean.Paciente" lazy="false">
+            <column name="idPaciente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="idUsuario" class="com.clinic.bean.Usuario" lazy="false">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one> 
+        <property name="existe" type="java.lang.Integer">
+        	<column name="existe"/>
+        </property>     
+    </class>
+</hibernate-mapping>

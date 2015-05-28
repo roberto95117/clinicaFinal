@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.clinic.bean.DetalleMedicacion" table="detalleMedicacion" >
+        <id name="idDetalleMed" type="java.lang.Integer">
+            <column name="idDetalleMed" />
+            <generator class="identity" />
+        </id>
+        <property name="cantidad" type="string">
+            <column name="cantidad"  />
+        </property>        
+        <property name="total" type="string">
+            <column name="total"  />
+        </property>
+                <property name="detalle" type="string">
+            <column name="detalle"  />
+        </property>
+     	<many-to-one name="idMedicina" class="com.clinic.bean.Medicina" lazy="false">
+            <column name="idMedicina" not-null="true" />
+        </many-to-one>
+        <many-to-one name="idMedicacion" class="com.clinic.bean.Medicacion" lazy="false">
+            <column name="idMedicacion" not-null="true" />
+        </many-to-one> 
+        <property name="existe" type="java.lang.Integer">
+        	<column name="existe"/>
+        </property>     
+    </class>
+</hibernate-mapping>

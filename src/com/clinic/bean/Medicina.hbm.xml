@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.clinic.bean.medicina" table="medicina" >
+        <id name="idMedicina" type="java.lang.Integer">
+            <column name="idMedicina" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre"  />
+        </property>
+        
+        <property name="precio" type="string">
+            <column name="precio"  />
+        </property>
+        <property name="cantDisp" type="java.lang.Integer">
+        	<column name="cantDisp"/>
+        </property>   
+        <property name="existe" type="java.lang.Integer">
+        	<column name="existe"/>
+        </property>     
+    </class>
+</hibernate-mapping>
