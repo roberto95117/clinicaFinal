@@ -37,13 +37,14 @@ public class ServletLogin extends HttpServlet {
 		String user = request.getParameter("txtUser");
 		String pass = request.getParameter("txtPass");
 		
+		
 //		JOptionPane.showMessageDialog(null, "HOla mundo");
 		if(esInyeccion(pass)==0 && esInyeccion(user)==0){
 			if(Conexion.getInstancia().hacerConsulta("from Usuario us where us.nickName='"+user+"' and us.pass='"+pass+"'").size()>0){
 				Usuario usuario=(Usuario)Conexion.getInstancia().hacerConsulta("from Usuario us where us.nickName='"+user+"' and us.pass='"+pass+"'").get(0);
 				HttpSession sesion=request.getSession(true);
 				sesion.setAttribute("usuario", usuario);
-				despachador = request.getRequestDispatcher("Home/Index.jsp");
+				despachador = request.getRequestDispatcher("ServletIndex.do");
 				despachador.forward(request, response);
 				}else{
 					despachador = request.getRequestDispatcher("Index.jsp");

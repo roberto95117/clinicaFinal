@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.clinic.bean.medicina" table="medicina" >
+    <class name="com.clinic.bean.Medicina" table="medicina" >
         <id name="idMedicina" type="java.lang.Integer">
             <column name="idMedicina" />
             <generator class="identity" />

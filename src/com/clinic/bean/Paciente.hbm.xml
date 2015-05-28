@@ -21,6 +21,12 @@
         <property name="telefono" type="string">
         	<column name="telefono"/>
         </property>
+        <property name="sexo" type="string">
+        	<column name="sexo"/>
+        </property>
+        <property name="direccion" type="string">
+        	<column name="direccion"/>
+        </property>
         <property name="existe" type="java.lang.Integer">
         	<column name="existe"/>
         </property>      

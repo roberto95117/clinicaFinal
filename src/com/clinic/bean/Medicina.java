@@ -4,7 +4,7 @@ public class Medicina implements java.io.Serializable {
 	private int idMedicina;
 	private String nombre;
 	private String precio;
-	private int catDisp;
+	private int cantDisp;
 	private int existe;
 	/**
 	 * @return the idMedicina
@@ -43,16 +43,16 @@ public class Medicina implements java.io.Serializable {
 		this.precio = precio;
 	}
 	/**
-	 * @return the catDisp
+	 * @return the cantDisp
 	 */
-	public int getCatDisp() {
-		return catDisp;
+	public int getCantDisp() {
+		return cantDisp;
 	}
 	/**
 	 * @param catDisp the catDisp to set
 	 */
-	public void setCatDisp(int catDisp) {
-		this.catDisp = catDisp;
+	public void setCantDisp(int catDisp) {
+		this.cantDisp = catDisp;
 	}
 	/**
 	 * @return the existe
@@ -72,7 +72,7 @@ public class Medicina implements java.io.Serializable {
 		this.idMedicina = idMedicina;
 		this.nombre = nombre;
 		this.precio = precio;
-		this.catDisp = catDisp;
+		this.cantDisp = catDisp;
 		this.existe = existe;
 	}
 	public Medicina() {
@@ -84,7 +84,7 @@ public class Medicina implements java.io.Serializable {
 		this.idMedicina = idMedicina;
 		this.nombre = nombre;
 		this.precio = precio;
-		this.catDisp = catDisp;
+		this.cantDisp = catDisp;
 	}
 	
 	

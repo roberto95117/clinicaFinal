@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 	
+  <%@ include file="../controlsesion.jsp" %> 
 <!DOCTYPE html >
 <html>
 <head>
@@ -14,5 +15,20 @@
 </head>
 <body>
 	<%@ include file="../masterPages/menu.jsp"%>
+	
+	<div id="effect" class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Clinica </h3>
+			</div>
+			<div class="panel-body">
+				<div class="jumbotron alert alert-info">
+					<h1 >Bienvenido</h1>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>

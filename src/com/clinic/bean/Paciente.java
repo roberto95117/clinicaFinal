@@ -8,6 +8,20 @@ public class Paciente implements java.io.Serializable {
 	private String fechaNac;
 	private String direccion;
 	private String telefono;
+	private String sexo;
+	/**
+	 * @return the sexo
+	 */
+	public String getSexo() {
+		return sexo;
+	}
+	/**
+	 * @param sexo the sexo to set
+	 */
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
 	private int existe;
 	/**
 	 * @return the idPaciente
@@ -98,7 +112,7 @@ public class Paciente implements java.io.Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	public Paciente(int idPaciente, String nombres, String apellidos,
-			String fechaNac, String direccion, String telefono, int existe) {
+			String fechaNac, String direccion, String telefono,String sexo, int existe) {
 		super();
 		this.idPaciente = idPaciente;
 		this.nombres = nombres;
@@ -107,10 +121,11 @@ public class Paciente implements java.io.Serializable {
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.existe = existe;
+		this.sexo=sexo;
 	}
 	
 	public Paciente(int idPaciente, String nombres, String apellidos,
-			String fechaNac, String direccion, String telefono) {
+			String fechaNac, String direccion, String telefono,String sexo) {
 		super();
 		this.idPaciente = idPaciente;
 		this.nombres = nombres;
@@ -118,5 +133,6 @@ public class Paciente implements java.io.Serializable {
 		this.fechaNac = fechaNac;
 		this.direccion = direccion;
 		this.telefono = telefono;
+		this.sexo=sexo;
 	}
 }
