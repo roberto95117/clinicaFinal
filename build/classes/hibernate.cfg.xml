@@ -2,7 +2,9 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
  <session-factory>
- 
+ <!-- esta linea es un ejemplo de modificacion
+  	ahora abrimos github
+  -->
   <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="connection.url">jdbc:mysql://localhost/clinicmanagement</property>
     <property name="connection.username">root</property>
@@ -24,8 +26,12 @@
     <!-- Disable the second-level cache  -->
     <!--<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>-->
     
-     <mapping  resource="com/clinic/bean/Usuario.hbm.xml"/> 
-    
+	<mapping  resource="com/clinic/bean/Usuario.hbm.xml"/> 
+    <mapping  resource="com/clinic/bean/Paciente.hbm.xml"/> 
+   	<mapping  resource="com/clinic/bean/Medicina.hbm.xml"/> 
+   	<mapping  resource="com/clinic/bean/Medicacion.hbm.xml"/> 
+   	<mapping  resource="com/clinic/bean/DetalleMedicacion.hbm.xml"/> 
+   	<mapping  resource="com/clinic/bean/Cita.hbm.xml"/> 
   <!-- 
   
    -->  
