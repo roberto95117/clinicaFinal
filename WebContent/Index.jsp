@@ -67,7 +67,7 @@
 
     body
     {
-    	background-image: url("Images/fondo3.jpg");
+    	background-image: url("Resources/Images/fondo3.jpg");
     	background-repeat: no-repeat;background-position: center center;background-attachment: fixed;
 	}
 
@@ -140,7 +140,7 @@ body .ui-tooltip {
 		  </div>
 		  <div class="panel-body">
 				<form   action="ServletLogin.do" method="POST"  role="form">
-         <img height="200" width="200" class="img img-responsive" alt="" src="Images/logo 1.jpg">
+         <img height="200" width="200" class="img img-responsive" alt="" src="Resources/Images/logo 1.jpg">
 		<br>
 		<br>
 		<div class="input-group">
