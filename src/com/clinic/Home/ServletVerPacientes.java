@@ -1,33 +1,30 @@
 package com.clinic.Home;
 
-
 import java.io.IOException;
-
-/*
 import java.util.ArrayList;
 import java.util.List;
-*/
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.clinic.bean.Usuario;
+import com.clinic.bean.Paciente;
+import com.clinic.conexion.Conexion;
 
 /**
- * Servlet implementation class Index
+ * Servlet implementation class ServletVerPacientes
  */
-@WebServlet(name = "ServletIndex", urlPatterns = { "/ServletIndex.do" })
-public class ServletIndex extends HttpServlet {
+@WebServlet("/ServletVerPacientes.do")
+public class ServletVerPacientes extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletIndex() {
+    public ServletVerPacientes() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,6 +35,7 @@ public class ServletIndex extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request,response);
+		
 	}
 
 	/**
@@ -45,20 +43,15 @@ public class ServletIndex extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher des=null;
-		Usuario us=new Usuario();
-		us.setNickName("");
-		us=(Usuario) request.getSession().getAttribute("usuario");
 		
-		if(us.getNickName()!=null){
-			des = request.getRequestDispatcher("Home/Index.jsp");
-			des.forward(request, response);			
-		}
-		else{
-			des = request.getRequestDispatcher("Index.jsp");
-			des.forward(request, response);	
-		}
-
+		RequestDispatcher des=null;
+		List<Paciente> pacientes=new ArrayList<Paciente>();
+		pacientes=Conexion.getInstancia().listaPacientes("from Paciente");
+		
+		request.setAttribute("pacientes", pacientes);
+		des=request.getRequestDispatcher("Pacientes/Lista.jsp");
+		des.forward(request, response);
+		
 		
 		
 	}

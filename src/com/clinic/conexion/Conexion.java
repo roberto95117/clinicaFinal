@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.stat.Statistics;
+
+import com.clinic.bean.Paciente;
 public class Conexion {
 	private SessionFactory session;
 	private static Conexion instancia = null;
@@ -74,6 +76,19 @@ public class Conexion {
 		session.getTransaction().commit();
 		return listado;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Paciente> listaPacientes(String consulta) {
+		Session session = this.getSession();
+		List <Paciente> listado=null;
+		session.beginTransaction();
+		listado=session.createQuery(consulta).list();
+		session.getTransaction().commit();
+		return listado;
+	}
+	
+	
+	
 
 	public void modificar(Object obj) {
 		Session session = this.getSession();
