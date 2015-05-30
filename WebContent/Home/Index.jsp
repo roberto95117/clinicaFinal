@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%@ include file="../masterPages/menu.jsp"%>
-	
+	<%@ include file="../masterPages/ventanasEmergentes.jsp" %>
 	<div id="effect" class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">

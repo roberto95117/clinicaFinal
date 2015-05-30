@@ -31,6 +31,7 @@
 	<script src="Resources/js/efects/jquery.ui.position.js"></script>
 	<script src="Resources/js/efects/jquery.ui.tooltip.js"></script>
 	<script src="Resources/js/jquery.ui.datepicker.js"></script>
+	<script src="Resources/js/validations.js"></script>
 	<script>
 	$(function() {
 		

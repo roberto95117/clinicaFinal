@@ -1,3 +1,4 @@
+    
       <!-- VENTANA EMERGENTE PARA AGREGAR Paciente -->
 		<div class="modal fade bs-example-modal-sm" id="agregarPaciente" tabindex="-1" role="dialog" aria-labelledby="Agregar Paciente" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -8,22 +9,32 @@
       </div>
       <div class="modal-body">
                 
-         <form action="ServletAddActivityFinal.do" method="post" class="form-horizontal" role="form">
+         <form action="ServletAddPaciente.do" method="post" class="form-horizontal" role="form">
                      
-				<input name="nombres" class="form-control" type="text" placeholder="Nombres" required>
+				<input  name="nombres" class="form-control" type="text" placeholder="Nombres" required>
 				<br/>
 				<input name="apellidos" class="form-control" type="text" placeholder="Apellidos" required> 
 				<br/>
 				<input name="direccion" class="form-control" type="text" placeholder="Direccion" required>
 				<br/>
-				<input name="tel" class="form-control" type="tel" placeholder="Telefono" required>
+				<input onkeypress="return justNumbers(event);" maxlength="8"  name="telefono" class="form-control" type="text" placeholder="Telefono" required>
 				<br/>
 				<select name="sexo" class="form-control" >
 					<option>Masculino</option>
 					<option>Femenino</option>
 				</select>
 				<br/>
-               <input class="form-control" name="f_entrega" type="text" id="datepicker" size="30" required/>
+               <script>
+             	$(function() {
+            		$( "#datepicker" ).datepicker({
+            			changeMonth: true,
+            			changeYear: true
+            		});
+            		$( "#datepicker" ).datepicker( "option", "mm/dd/yy", $( this ).val() );
+            	});
+	</script>
+             	
+             	<input  name="fecha" class="form-control"  placeholder="fecha de nacimiento"  id="datepicker" type="text" id="datepicker" size="30"required>
               <br />
               <div class="modal-footer">
         <button  id="btnadd" style="font-family:space age" data-toggle="tooltip" data-placement="bottom" title="Agregar" type="submit" class="btn btn-success btn-sm "><span class="glyphicon glyphicon-ok"></span></button>

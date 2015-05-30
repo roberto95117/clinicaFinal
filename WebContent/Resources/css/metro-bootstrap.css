@@ -18,7 +18,7 @@ html {
 body {
 	height: 100%;
   margin: 0;
-  background:url(../images/fondos/bg_image.jpg);background-repeat: no-repeat;background-position: center center;background-attachment: fixed;
+  background:url(../Images/bg_image.jpg);background-repeat: no-repeat;background-position: center center;background-attachment: fixed;
 	
 	
 }
