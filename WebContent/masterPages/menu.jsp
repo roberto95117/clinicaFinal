@@ -24,7 +24,7 @@
       <button title="buscar" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>  </button>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li  title="pagina principal"><a href="IndexCoordinador.do"><span  class="glyphicon glyphicon-home"></span> Inicio</a></li>
+    <li  title="pagina principal"><a href="ServletIndex.do"><span  class="glyphicon glyphicon-home"></span> Inicio</a></li>
     <li  title="Citas"><a href="ServletListarForSearch.do?llenar=vacio&DarNotas=vacio"><span  class="glyphicon glyphicon-align-left"></span> Citas</a></li>
     <li   class="dropdown">
     	<a title="Pacientes" href="#" class="dropdown-toggle" data-toggle="dropdown"> <span  class="glyphicon glyphicon-th-list"></span> Pacientes <b class="caret"></b></a>

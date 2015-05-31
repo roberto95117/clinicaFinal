@@ -9,19 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
-import com.clinic.conexion.Conexion;
 import com.clinic.bean.Paciente;
+import com.clinic.conexion.Conexion;
+
 /**
- * Servlet implementation class ServletEliminar
+ * Servlet implementation class ServletModificarPaciente
  */
-@WebServlet("/ServletEliminarPaciente.do")
-public class ServletEliminarPaciente extends HttpServlet {
+@WebServlet("/ServletModificarPaciente.do")
+public class ServletModificarPaciente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletEliminarPaciente() {
+    public ServletModificarPaciente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,22 +40,24 @@ public class ServletEliminarPaciente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int idPaciente=Integer.parseInt(request.getParameter("idPaciente"));
-		//Paciente p=(Paciente)( Conexion.getInstancia().hacerConsulta("from Paciente where idPaciente="+idPaciente)).get(0);
-		//p.setExiste(0);
-		//Conexion.getInstancia().modificar(p);
-		Paciente p;
-		p=(Paciente)Conexion.getInstancia().Buscar(Paciente.class, idPaciente);
-		p.setExiste(0);		
+		RequestDispatcher des=null;
+		int id=Integer.parseInt(request.getParameter("idPacienteE"));
+		Paciente p=(Paciente) Conexion.getInstancia().Buscar(Paciente.class, id);
+		
+		String nombre=request.getParameter("nombresE").trim();
+		
+		if(nombre.length()>0){
+				p.setNombres(request.getParameter("nombresE"));
+		}
+		
 		Session session=Conexion.getInstancia().getSession();
 		session.beginTransaction();
 		session.merge(p);
 		session.getTransaction().commit();
 		
-
-		RequestDispatcher des=null;
 		des=request.getRequestDispatcher("ServletVerPacientes.do");
 		des.forward(request, response);
+		
 	}
 
 }

@@ -41,6 +41,7 @@
 			                    	<th>Direccion</th>
 			                    	<th>Telefono</th>
 			                    	<th>Sexo</th>
+			                    	<th></th>
 			                    </tr>
 		            		</thead>
 		            		<c:forEach items="${pacientes }" var="paciente">
@@ -76,6 +77,87 @@ Para eliminar actividad-->
     </div>
   </div>
 </div><!-- Termina Ventana Emergente-->
+
+<!--Ventana Emergente -->
+		                    <!--Para editar actividad-->	
+        <div class="modal fade bs-example-modal-sm" id="editar${paciente.getIdPaciente() }" tabindex="-1" role="dialog" aria-labelledby="editar${paciente.getIdPaciente() }-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="editar${paciente.getIdPaciente() }-1" >EDITAR</h4>
+      </div>
+      
+                
+         <form action="ServletModificarPaciente.do" method="post" class="form-horizontal" role="form">
+            <div class="modal-body">
+                <input type="hidden" name="idPacienteE" value="${paciente.getIdPaciente()}">
+                
+              	<div class="input-group">
+				<input  name="nombresE" class="form-control" type="text" placeholder="${paciente.getNombres() }" >
+	        	<span class="input-group-addon"><span class="glyphicon glyphicon-text-width"></span></span>
+        	</div>             
+
+				<br/>
+        	<div class="input-group">
+				<input name="apellidosE" class="form-control" type="text" placeholder="${paciente.getApellidos() }" > 				
+				<span class="input-group-addon"><span class="glyphicon glyphicon-text-width"></span></span>
+        	</div>             
+				<br/>
+        	<div class="input-group">
+				<input name="direccionE" class="form-control" type="text" placeholder="${paciente.getDireccion() }" >				
+				<span class="input-group-addon"><span class="glyphicon glyphicon-tower"></span></span>
+        	</div>   
+				<br/>
+        	<div class="input-group">
+				<input name="telefonoE" onkeypress="return justNumbers(event);" maxlength="8"  placeholder="${paciente.getTelefono() }" class="form-control" type="text"  >				
+				<span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+        	</div>				
+				<br/>
+        	<div class="input-group">
+				<select name="sexoE" class="form-control"  >
+					<c:if test="${paciente.getSexo().equalsIgnoreCase('Masculino')}">						
+						<option >Femenino</option>
+						<option selected>Masculino</option>
+						
+											
+					</c:if>
+					<c:if test="${paciente.getSexo().equalsIgnoreCase('Femenino')}">
+						<option selected>Femenino</option>
+						<option >Masculino</option>			
+					</c:if>
+				</select>
+				<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        	</div>
+				
+				<br/>
+            <input  name="fecha" class="form-control"  placeholder="${paciente.getFechaNac() }"   type="text" id="datepicker2" size="30">				
+						
+        	    
+             <script>
+             	$(function() {
+            		$( "#datepicker2" ).datepicker({
+            			changeMonth: true,
+            			changeYear: true
+            		});
+            		$( "#datepicker2" ).datepicker( "option", "mm/dd/yy", $( this ).val() );
+            	});
+	</script>
+              <br />
+               	
+               
+             
+      </div>
+       <div class="modal-footer">
+        <button  data-toggle="tooltip" data-placement="bottom" title="editar" type="submit" class="btn btn-success btn-sm "><span class="glyphicon glyphicon-ok"></span></button>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+          </form>
+      
+    </div>
+  </div>
+</div><!-- Termina Ventana Emergente-->
+	
 		                    	
 		                    	<tr >
 	  								<th>${paciente.getNombres() }</th>
@@ -86,14 +168,18 @@ Para eliminar actividad-->
 	  								<th>
 	  									<div class="row">
 	  										<div class="col-lg-6">
-		  										<a  class="btn btn-sm btn-primary" data-toggle="modal" data-target="#eliminar${paciente.getIdPaciente() }" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom"  title="eliminar"><span class="glyphicon glyphicon-remove"> </span></a> 									
-	  									</div>
-		  									<div class="col-lg-6">
-		  										<a class="btn btn-sm btn-success">Modificar</a>
-		  									</div>
-	  									</div>
-	  									
-
+		  										<div style="margin-right:10px;margin-bottom:10px" class="col-lg-3">
+		  											<form >
+		  												<a  class="btn btn-sm btn-danger" data-toggle="modal" data-target="#eliminar${paciente.getIdPaciente() }" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom"  title="eliminar"><span class="glyphicon glyphicon-remove"> </span></a> 										  												  										
+		  											</form>		  											
+		  										</div>
+		  										<div class="col-lg-3">
+	  												<form>
+	  													<a  class="btn btn-sm btn-success" data-toggle="modal" data-target="#editar${paciente.getIdPaciente() }" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom"  title="modificar"><span class="glyphicon glyphicon-edit"> </span></a>		  											  										
+	  												</form>	  												
+		  										</div>		  										
+	  										</div>
+	  									</div> 									
 	  								</th>
 	  									  							
 	  							</tr>		            			
