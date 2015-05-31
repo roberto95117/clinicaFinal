@@ -11,20 +11,40 @@
                 
          <form action="ServletAddPaciente.do" method="post" class="form-horizontal" role="form">
                      
+        	<div class="input-group">
 				<input  name="nombres" class="form-control" type="text" placeholder="Nombres" required>
+	        	<span class="input-group-addon"><span class="glyphicon glyphicon-text-width"></span></span>
+        	</div>             
+
 				<br/>
-				<input name="apellidos" class="form-control" type="text" placeholder="Apellidos" required> 
+        	<div class="input-group">
+				<input name="apellidos" class="form-control" type="text" placeholder="Apellidos" required> 				
+				<span class="input-group-addon"><span class="glyphicon glyphicon-text-width"></span></span>
+        	</div>             
 				<br/>
-				<input name="direccion" class="form-control" type="text" placeholder="Direccion" required>
+        	<div class="input-group">
+				<input name="direccion" class="form-control" type="text" placeholder="Direccion" required>				
+				<span class="input-group-addon"><span class="glyphicon glyphicon-tower"></span></span>
+        	</div>   
 				<br/>
-				<input onkeypress="return justNumbers(event);" maxlength="8"  name="telefono" class="form-control" type="text" placeholder="Telefono" required>
+        	<div class="input-group">
+				<input onkeypress="return justNumbers(event);" maxlength="8"  name="telefono" class="form-control" type="text" placeholder="Telefono" required>				
+				<span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+        	</div>				
 				<br/>
+        	<div class="input-group">
 				<select name="sexo" class="form-control" >
 					<option>Masculino</option>
 					<option>Femenino</option>
 				</select>
+				<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        	</div>
+				
 				<br/>
-               <script>
+            <input  name="fecha" class="form-control"  placeholder="fecha de nacimiento"   type="text" id="datepicker" size="30"required>				
+						
+        	    
+             <script>
              	$(function() {
             		$( "#datepicker" ).datepicker({
             			changeMonth: true,
@@ -33,8 +53,6 @@
             		$( "#datepicker" ).datepicker( "option", "mm/dd/yy", $( this ).val() );
             	});
 	</script>
-             	
-             	<input  name="fecha" class="form-control"  placeholder="fecha de nacimiento"  id="datepicker" type="text" id="datepicker" size="30"required>
               <br />
               <div class="modal-footer">
         <button  id="btnadd" style="font-family:space age" data-toggle="tooltip" data-placement="bottom" title="Agregar" type="submit" class="btn btn-success btn-sm "><span class="glyphicon glyphicon-ok"></span></button>
@@ -45,3 +63,6 @@
     </div>
   </div>
 </div><!-- Termina Ventana Emergente-->
+
+
+

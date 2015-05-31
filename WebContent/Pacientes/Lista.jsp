@@ -44,6 +44,39 @@
 			                    </tr>
 		            		</thead>
 		            		<c:forEach items="${pacientes }" var="paciente">
+		                    	<!--
+ Ventana Emergente
+Para eliminar actividad-->	
+        <div class="modal fade bs-example-modal-sm" id="eliminar${paciente.getIdPaciente() }" tabindex="-1" role="dialog" aria-labelledby="eliminar${paciente.getIdPaciente() }-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="eliminar${paciente.getIdPaciente() }-1" >Eliminar </h4>
+      </div>
+      
+                
+         <form action="ServletEliminarPaciente.do" method="post" class="form-horizontal" role="form">
+            <div class="modal-body">
+               <input type="hidden" name="idPaciente" value="${paciente.getIdPaciente()}">
+               
+                
+               <h3>¿Eliminar a ${paciente.getNombres() } ${paciente.getApellidos() }? </h3 >
+               
+               <br />
+               
+             
+      </div>
+       <div class="modal-footer">
+        <button  data-toggle="tooltip" data-placement="bottom" title="eliminar" type="submit" class="btn btn-success btn-sm "><span class="glyphicon glyphicon-ok"></span></button>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+          </form>
+      
+    </div>
+  </div>
+</div><!-- Termina Ventana Emergente-->
+		                    	
 		                    	<tr >
 	  								<th>${paciente.getNombres() }</th>
 	  								<th>${paciente.getApellidos() }</th>
@@ -53,9 +86,7 @@
 	  								<th>
 	  									<div class="row">
 	  										<div class="col-lg-6">
-		  									<form action="ServletEliminarPaciente.do">
-		  										<input type="button" class="btn btn-sm btn-primary" value="Eliminar">
-		  									</form>	  									
+		  										<a  class="btn btn-sm btn-primary" data-toggle="modal" data-target="#eliminar${paciente.getIdPaciente() }" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom"  title="eliminar"><span class="glyphicon glyphicon-remove"> </span></a> 									
 	  									</div>
 		  									<div class="col-lg-6">
 		  										<a class="btn btn-sm btn-success">Modificar</a>

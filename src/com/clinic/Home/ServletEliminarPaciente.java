@@ -9,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.clinic.bean.Paciente;
 import com.clinic.conexion.Conexion;
-
+import com.clinic.bean.Paciente;
 /**
- * Servlet implementation class ServletAddPaciente
+ * Servlet implementation class ServletEliminar
  */
-@WebServlet("/ServletAddPaciente.do")
-public class ServletAddPaciente extends HttpServlet {
+@WebServlet("/ServletEliminarPaciente.do")
+public class ServletEliminarPaciente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletAddPaciente() {
+    public ServletEliminarPaciente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,20 +39,11 @@ public class ServletAddPaciente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int idPaciente=Integer.parseInt(request.getParameter("idPaciente"));
+		Paciente p=(Paciente)( Conexion.getInstancia().hacerConsulta("from Paciente where idPaciente="+idPaciente)).get(0);
+		p.setExiste(0);
+		Conexion.getInstancia().modificar(p);
 		RequestDispatcher des=null;
-		Paciente ps=new Paciente();
-		ps.setNombres(request.getParameter("nombres"));
-		ps.setApellidos(request.getParameter("apellidos"));
-		ps.setDireccion(request.getParameter("direccion"));
-		ps.setSexo(request.getParameter("sexo"));
-		ps.setTelefono(request.getParameter("telefono"));
-		ps.setExiste(1);
-		ps.setFechaNac(request.getParameter("fecha"));
-		//ps.setFechaNac("2015-05-05");
-		
-		
-		Conexion.getInstancia().agregar(ps);
-		
 		des=request.getRequestDispatcher("ServletVerPacientes.do");
 		des.forward(request, response);
 		

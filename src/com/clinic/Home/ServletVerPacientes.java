@@ -46,7 +46,7 @@ public class ServletVerPacientes extends HttpServlet {
 		
 		RequestDispatcher des=null;
 		List<Paciente> pacientes=new ArrayList<Paciente>();
-		pacientes=Conexion.getInstancia().listaPacientes("from Paciente");
+		pacientes=Conexion.getInstancia().listaPacientes("from Paciente where existe=1");
 		
 		request.setAttribute("pacientes", pacientes);
 		des=request.getRequestDispatcher("Pacientes/Lista.jsp");
