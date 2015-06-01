@@ -35,12 +35,13 @@
     					
 		            	<table id="mainTable" class="table table-hover table-responsive table-bordered">
 		            		<thead>
-		            			<tr  style="background-color:#f0ad4e;">
-				                    <th>Nombres</th>
+		            			<tr style="background-color:#f0ad4e;cursor: pointer;">
+				                    <th >Nombres</th>
 				                    <th>Apellidos</th>
 			                    	<th>Direccion</th>
 			                    	<th>Telefono</th>
 			                    	<th>Sexo</th>
+			                    	<th>Fecha De Nacimiento</th>
 			                    	<th></th>
 			                    </tr>
 		            		</thead>
@@ -79,7 +80,7 @@ Para eliminar actividad-->
 </div><!-- Termina Ventana Emergente-->
 
 <!--Ventana Emergente -->
-		                    <!--Para editar actividad-->	
+		                    <!--Para editar paciente-->	
         <div class="modal fade bs-example-modal-sm" id="editar${paciente.getIdPaciente() }" tabindex="-1" role="dialog" aria-labelledby="editar${paciente.getIdPaciente() }-1" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -92,28 +93,32 @@ Para eliminar actividad-->
          <form action="ServletModificarPaciente.do" method="post" class="form-horizontal" role="form">
             <div class="modal-body">
                 <input type="hidden" name="idPacienteE" value="${paciente.getIdPaciente()}">
-                
+                <label>Nombres</label>
               	<div class="input-group">
 				<input  name="nombresE" class="form-control" type="text" placeholder="${paciente.getNombres() }" >
 	        	<span class="input-group-addon"><span class="glyphicon glyphicon-text-width"></span></span>
         	</div>             
 
 				<br/>
+				<label>Apellidos</label>
         	<div class="input-group">
 				<input name="apellidosE" class="form-control" type="text" placeholder="${paciente.getApellidos() }" > 				
 				<span class="input-group-addon"><span class="glyphicon glyphicon-text-width"></span></span>
         	</div>             
 				<br/>
+				<label>Direccion</label>
         	<div class="input-group">
 				<input name="direccionE" class="form-control" type="text" placeholder="${paciente.getDireccion() }" >				
 				<span class="input-group-addon"><span class="glyphicon glyphicon-tower"></span></span>
         	</div>   
 				<br/>
+				<label>Telefono</label>
         	<div class="input-group">
 				<input name="telefonoE" onkeypress="return justNumbers(event);" maxlength="8"  placeholder="${paciente.getTelefono() }" class="form-control" type="text"  >				
 				<span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
         	</div>				
 				<br/>
+				<label>Sexo</label>
         	<div class="input-group">
 				<select name="sexoE" class="form-control"  >
 					<c:if test="${paciente.getSexo().equalsIgnoreCase('Masculino')}">						
@@ -131,7 +136,8 @@ Para eliminar actividad-->
         	</div>
 				
 				<br/>
-            <input  name="fecha" class="form-control"  placeholder="${paciente.getFechaNac() }"   type="text" id="datepicker2" size="30">				
+				<label>Fecha de Nacimiento</label>
+            <input  name="fechaE" class="form-control"  placeholder="${paciente.getFechaNac() }"   type="text" id="datepicker2" size="30">				
 						
         	    
              <script>
@@ -159,12 +165,13 @@ Para eliminar actividad-->
 </div><!-- Termina Ventana Emergente-->
 	
 		                    	
-		                    	<tr >
+		                    	<tr style="cursor: pointer;">
 	  								<th>${paciente.getNombres() }</th>
 	  								<th>${paciente.getApellidos() }</th>
 	  								<th>${paciente.getDireccion() }</th>
 	  								<th>${paciente.getTelefono() }</th>
 	  								<th>${paciente.getSexo() }</th>
+	  								<th>${paciente.getFechaNac() }</th>
 	  								<th>
 	  									<div class="row">
 	  										<div class="col-lg-6">
@@ -175,7 +182,7 @@ Para eliminar actividad-->
 		  										</div>
 		  										<div class="col-lg-3">
 	  												<form>
-	  													<a  class="btn btn-sm btn-success" data-toggle="modal" data-target="#editar${paciente.getIdPaciente() }" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom"  title="modificar"><span class="glyphicon glyphicon-edit"> </span></a>		  											  										
+	  													<a  class="btn btn-sm btn-success" data-toggle="modal" data-target="#editar${paciente.getIdPaciente() }" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom"  title="editar"><span class="glyphicon glyphicon-edit"> </span></a>		  											  										
 	  												</form>	  												
 		  										</div>		  										
 	  										</div>

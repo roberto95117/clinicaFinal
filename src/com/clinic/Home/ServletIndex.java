@@ -2,6 +2,10 @@ package com.clinic.Home;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 /*
 import java.util.ArrayList;
@@ -13,9 +17,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import com.clinic.bean.Paciente;
 import com.clinic.bean.Usuario;
+import com.clinic.conexion.Conexion;
 
 /**
  * Servlet implementation class Index
@@ -46,18 +51,15 @@ public class ServletIndex extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		RequestDispatcher des=null;
-		Usuario us=new Usuario();
-		us.setNickName("");
-		us=(Usuario) request.getSession().getAttribute("usuario");
+
+		List<Paciente> pacientes=new ArrayList<Paciente>(Conexion.getInstancia().listaPacientes("from Paciente where existe=1"));
+		List<Usuario> doctores=new ArrayList<Usuario>(Conexion.getInstancia().listaUsuarios("from Usuario where existe=1"));
+		request.setAttribute("pacientes", pacientes);
+		request.setAttribute("doctores", doctores);
 		
-		if(us.getNickName()!=null){
-			des = request.getRequestDispatcher("Home/Index.jsp");
-			des.forward(request, response);			
-		}
-		else{
-			des = request.getRequestDispatcher("Index.jsp");
-			des.forward(request, response);	
-		}
+		des = request.getRequestDispatcher("Home/Index.jsp");
+		des.forward(request, response);			
+		
 
 		
 		

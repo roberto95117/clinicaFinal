@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.hibernate.Session;
 import com.clinic.conexion.Conexion;
 import com.clinic.bean.Paciente;
 /**
@@ -46,10 +45,7 @@ public class ServletEliminarPaciente extends HttpServlet {
 		Paciente p;
 		p=(Paciente)Conexion.getInstancia().Buscar(Paciente.class, idPaciente);
 		p.setExiste(0);		
-		Session session=Conexion.getInstancia().getSession();
-		session.beginTransaction();
-		session.merge(p);
-		session.getTransaction().commit();
+		Conexion.getInstancia().modificar(p);
 		
 
 		RequestDispatcher des=null;

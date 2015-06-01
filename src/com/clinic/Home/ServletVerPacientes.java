@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.clinic.bean.Paciente;
+import com.clinic.bean.Usuario;
 import com.clinic.conexion.Conexion;
 
 /**
@@ -47,8 +48,9 @@ public class ServletVerPacientes extends HttpServlet {
 		RequestDispatcher des=null;
 		List<Paciente> pacientes=new ArrayList<Paciente>();
 		pacientes=Conexion.getInstancia().listaPacientes("from Paciente where existe=1");
-		
+		List<Usuario> doctores=new ArrayList<Usuario>(Conexion.getInstancia().listaUsuarios("from Usuario where existe=1"));
 		request.setAttribute("pacientes", pacientes);
+		request.setAttribute("doctores", doctores);
 		des=request.getRequestDispatcher("Pacientes/Lista.jsp");
 		des.forward(request, response);
 		

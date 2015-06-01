@@ -8,10 +8,12 @@
             <column name="idCita" />
             <generator class="identity" />
         </id>
-        <property name="horaFecha" type="string">
-            <column name="horaFecha"  />
+        <property name="hora" type="string">
+            <column name="hora"  />
         </property>
-        
+        <property name="fecha" type="string">
+            <column name="fecha"  />
+        </property>        
         <property name="cumplido" type="string">
             <column name="cumplido"  />
         </property>

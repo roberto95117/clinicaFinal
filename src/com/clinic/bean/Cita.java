@@ -4,9 +4,16 @@ public class Cita implements java.io.Serializable {
 	private int idCita;
 	private Paciente idPaciente;
 	private Usuario idUsuario;
-	private String horaFecha;
+	private String hora;
 	private String cumplido;
 	private int existe;
+	private String fecha;
+	public String getFecha() {
+		return fecha;
+	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
 	/**
 	 * @return the idCita
 	 */
@@ -44,16 +51,16 @@ public class Cita implements java.io.Serializable {
 		this.idUsuario = idUsuario;
 	}
 	/**
-	 * @return the horaFecha
+	 * @return the hora
 	 */
-	public String getHoraFecha() {
-		return horaFecha;
+	public String getHora() {
+		return hora;
 	}
 	/**
-	 * @param horaFecha the horaFecha to set
+	 * @param horaFecha the hora to set
 	 */
-	public void setHoraFecha(String horaFecha) {
-		this.horaFecha = horaFecha;
+	public void setHora(String horaFecha) {
+		this.hora = horaFecha;
 	}
 	/**
 	 * @return the cumplido
@@ -80,23 +87,25 @@ public class Cita implements java.io.Serializable {
 		this.existe = existe;
 	}
 	public Cita(int idCita, Paciente idPaciente, Usuario idUsuario,
-			String horaFecha, String cumplido, int existe) {
+			String hora,String fecha, String cumplido, int existe) {
 		super();
 		this.idCita = idCita;
 		this.idPaciente = idPaciente;
 		this.idUsuario = idUsuario;
-		this.horaFecha = horaFecha;
+		this.hora = hora;
 		this.cumplido = cumplido;
+		this.fecha=fecha;
 		this.existe = existe;
 	}
 	public Cita(int idCita, Paciente idPaciente, Usuario idUsuario,
-			String horaFecha, String cumplido) {
+			String hora, String cumplido,String fecha) {
 		super();
 		this.idCita = idCita;
 		this.idPaciente = idPaciente;
 		this.idUsuario = idUsuario;
-		this.horaFecha = horaFecha;
+		this.hora = hora;
 		this.cumplido = cumplido;
+		this.fecha=fecha;
 	}
 	public Cita() {
 		super();

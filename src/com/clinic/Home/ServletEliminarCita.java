@@ -8,20 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.clinic.bean.Paciente;
+
+import com.clinic.bean.Cita;
 import com.clinic.conexion.Conexion;
 
 /**
- * Servlet implementation class ServletModificarPaciente
+ * Servlet implementation class ServletEliminarCita
  */
-@WebServlet("/ServletModificarPaciente.do")
-public class ServletModificarPaciente extends HttpServlet {
+@WebServlet("/ServletEliminarCita.do")
+public class ServletEliminarCita extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletModificarPaciente() {
+    public ServletEliminarCita() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,36 +41,11 @@ public class ServletModificarPaciente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		RequestDispatcher des=null;
-		int id=Integer.parseInt(request.getParameter("idPacienteE"));
-		Paciente p=(Paciente) Conexion.getInstancia().Buscar(Paciente.class, id);
-		
-		String nombre=request.getParameter("nombresE").trim();
-		String apellido=request.getParameter("apellidosE").trim();
-		String direccion=request.getParameter("direccionE").trim();
-		String telefono=request.getParameter("telefonoE").trim();
-		String fecha=request.getParameter("fechaE").trim();
-		String sexo=request.getParameter("sexoE").trim();
-		if(nombre.length()>0){
-				p.setNombres(nombre);
-		}
-		if(apellido.length()>0){
-			p.setApellidos(apellido);
-		}
-		if(direccion.length()>0){
-			p.setDireccion(direccion);
-		}
-		if(telefono.length()>0){
-			p.setTelefono(telefono);
-		}
-		if(fecha.length()>0){
-			p.setFechaNac(fecha);
-		}
-		p.setSexo(sexo);
-		Conexion.getInstancia().modificar(p);
-		
-		des=request.getRequestDispatcher("ServletVerPacientes.do");
+		Cita c=(Cita)Conexion.getInstancia().Buscar(Cita.class, Integer.parseInt(request.getParameter("idCita")));
+		c.setExiste(0);
+		Conexion.getInstancia().modificar(c);
+		des=request.getRequestDispatcher("ServletVerCitas.do");
 		des.forward(request, response);
-		
 	}
 
 }

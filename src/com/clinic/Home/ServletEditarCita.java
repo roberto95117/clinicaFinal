@@ -8,20 +8,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.clinic.bean.Cita;
 import com.clinic.bean.Paciente;
+import com.clinic.bean.Usuario;
 import com.clinic.conexion.Conexion;
 
 /**
- * Servlet implementation class ServletModificarPaciente
+ * Servlet implementation class ServletEditarCita
  */
-@WebServlet("/ServletModificarPaciente.do")
-public class ServletModificarPaciente extends HttpServlet {
+@WebServlet("/ServletEditarCita.do")
+public class ServletEditarCita extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletModificarPaciente() {
+    public ServletEditarCita() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,6 +35,7 @@ public class ServletModificarPaciente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request,response);
+		
 	}
 
 	/**
@@ -40,36 +44,27 @@ public class ServletModificarPaciente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		RequestDispatcher des=null;
-		int id=Integer.parseInt(request.getParameter("idPacienteE"));
-		Paciente p=(Paciente) Conexion.getInstancia().Buscar(Paciente.class, id);
-		
-		String nombre=request.getParameter("nombresE").trim();
-		String apellido=request.getParameter("apellidosE").trim();
-		String direccion=request.getParameter("direccionE").trim();
-		String telefono=request.getParameter("telefonoE").trim();
-		String fecha=request.getParameter("fechaE").trim();
-		String sexo=request.getParameter("sexoE").trim();
-		if(nombre.length()>0){
-				p.setNombres(nombre);
-		}
-		if(apellido.length()>0){
-			p.setApellidos(apellido);
-		}
-		if(direccion.length()>0){
-			p.setDireccion(direccion);
-		}
-		if(telefono.length()>0){
-			p.setTelefono(telefono);
+		Cita c=(Cita)Conexion.getInstancia().Buscar(Cita.class, Integer.parseInt(request.getParameter("idCitaE")));
+		//c.setExiste(1);
+		//c.setCumplido("no");
+		String hora=request.getParameter("horacitaE").trim();
+		String fecha=request.getParameter("fechacitaE").trim();
+		if(hora.length()>0){
+			c.setHora(hora);
 		}
 		if(fecha.length()>0){
-			p.setFechaNac(fecha);
+			c.setFecha(fecha);
 		}
-		p.setSexo(sexo);
-		Conexion.getInstancia().modificar(p);
 		
-		des=request.getRequestDispatcher("ServletVerPacientes.do");
+		
+		//c.setFecha(request.getParameter("fechacitaE"));
+		//c.setHora(request.getParameter("horacitaE"));
+		c.setIdPaciente((Paciente)Conexion.getInstancia().Buscar(Paciente.class,Integer.parseInt( request.getParameter("pacientecitaE"))));
+		c.setIdUsuario((Usuario)Conexion.getInstancia().Buscar(Usuario.class,Integer.parseInt(request.getParameter("doctorcitaE"))));
+		Conexion.getInstancia().modificar(c);
+		
+		des=request.getRequestDispatcher("ServletVerCitas.do");
 		des.forward(request, response);
-		
 	}
 
 }

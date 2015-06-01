@@ -17,7 +17,7 @@
 
 
   	<div class="collapse navbar-collapse navbar-ex1-collapse" style="margin-top:15px">
-    <form action="ServletBuscar.do" method="POST" class="navbar-form navbar-right" role="search">
+    <form action="#" method="POST" class="navbar-form navbar-right" role="search">
       <div class="form-group">
         <input  name="txtCarne" type="text" class="form-control" placeholder="Buscar paciente"  required>
       </div>
@@ -25,7 +25,14 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
     <li  title="pagina principal"><a href="ServletIndex.do"><span  class="glyphicon glyphicon-home"></span> Inicio</a></li>
-    <li  title="Citas"><a href="ServletListarForSearch.do?llenar=vacio&DarNotas=vacio"><span  class="glyphicon glyphicon-align-left"></span> Citas</a></li>
+    <li class="dropdown"  >
+    	<a title="Citas" href="#"  class="dropdown-toggle" data-toggle="dropdown"><span  class="glyphicon glyphicon-align-left"></span> Citas <b class="caret"></b></a>
+    	<ul class="dropdown-menu">
+    	<li><a href="ServletVerCitas.do"><span class="glyphicon glyphicon-eye-open"> Ver Citas</span></a></li>
+		<li><a data-toggle="modal" data-target="#agregarCita" style="cursor: pointer;"><span class="glyphicon glyphicon-dashboard"> Crear Cita</span></a></li>
+    	</ul>
+    </li>
+    
     <li   class="dropdown">
     	<a title="Pacientes" href="#" class="dropdown-toggle" data-toggle="dropdown"> <span  class="glyphicon glyphicon-th-list"></span> Pacientes <b class="caret"></b></a>
    		<ul class="dropdown-menu">
