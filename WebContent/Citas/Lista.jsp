@@ -117,7 +117,7 @@ Para eliminar actividad-->
 				<br/>
 				<label>Hora</label>
 				<div class="input-group">
-				<input  class="form-control" name="horacitaE" type="time" required/>
+				<input  class="form-control" name="horacitaE" type="time" />
 				<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
         	</div>
 				<br/>
@@ -169,8 +169,10 @@ Para eliminar actividad-->
 	  												</form>	  												
 		  										</div>		
 		  										<div style="margin-left:10px;margin-right:10px;margin-bottom:10px" class="col-lg-2">
-	  												<form>
-	  													<a  class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editar${cita.getIdCita() }" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom"  title="Iniciar Visita"><span class="glyphicon glyphicon-play"> </span></a>		  											  										
+	  												<form method="post" action="ServletIniciarVisita.do">
+	  													<input type="hidden" name="idStart" value="${cita.getIdCita() }"> 
+	  													
+	  													<a href="ServletIniciarVisita.do?idVisita=${cita.getIdCita() }" class="btn btn-sm btn-primary" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom"  title="Iniciar Visita"><span class="glyphicon glyphicon-play"> </span></a>		  											  										
 	  												</form>	  												
 		  										</div>	  										
 	  										</div>
