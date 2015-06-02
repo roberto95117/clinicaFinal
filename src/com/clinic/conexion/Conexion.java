@@ -9,6 +9,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.stat.Statistics;
 
 import com.clinic.bean.Cita;
+import com.clinic.bean.DetalleMedicacion;
+import com.clinic.bean.Medicacion;
 import com.clinic.bean.Paciente;
 import com.clinic.bean.Usuario;
 public class Conexion {
@@ -110,6 +112,25 @@ public class Conexion {
 		return listado;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Medicacion> listaMedicacion(String consulta) {
+		Session session = this.getSession();
+		List <Medicacion> listado=null;
+		session.beginTransaction();
+		listado=session.createQuery(consulta).list();
+		session.getTransaction().commit();
+		return listado;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<DetalleMedicacion> listaDetalleMedicacion(String consulta) {
+		Session session = this.getSession();
+		List <DetalleMedicacion> listado=null;
+		session.beginTransaction();
+		listado=session.createQuery(consulta).list();
+		session.getTransaction().commit();
+		return listado;
+	}
 	public void modificar(Object obj) {
 		Session session = this.getSession();
 		session.beginTransaction();
