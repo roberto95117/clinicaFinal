@@ -69,18 +69,22 @@ public class ServletIniciarVisita extends HttpServlet {
 		List<DetalleMedicacion> detmedifinal=new ArrayList<DetalleMedicacion>();
 		request.setAttribute("medicaciones", "no");
 		Medicacion med=new Medicacion();
+		medicacion=new ArrayList<Medicacion>(Conexion.getInstancia().listaMedicacion("from Medicacion"));
+		
 		for(Medicacion m :medicacion){
 			if(m.getIdCita().getIdCita()==Integer.parseInt(request.getParameter("idVisita"))){
 				med=m;
 			}
 		}
+		double total=0;
 		for(DetalleMedicacion dm: detmedi){
 			if(dm.getIdMedicacion().getIdMedicacion()==med.getIdMedicacion()){
 				request.setAttribute("medicaciones", "si");
+				total=total + Double.parseDouble(dm.getTotal());
 				detmedifinal.add(dm);
 			}
 		}
-		
+		request.setAttribute("totalpagar", total);
 		request.setAttribute("idMedicacion", med.getIdMedicacion());
 		request.setAttribute("medicinaasignada", detmedifinal);
 		request.setAttribute("medicinas", Conexion.getInstancia().hacerConsulta("from Medicina where existe=1"));

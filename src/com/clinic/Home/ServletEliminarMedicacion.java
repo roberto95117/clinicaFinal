@@ -10,27 +10,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 
 import com.clinic.bean.Cita;
 import com.clinic.bean.DetalleMedicacion;
 import com.clinic.bean.Medicacion;
-import com.clinic.bean.Medicina;
 import com.clinic.bean.Paciente;
 import com.clinic.bean.Usuario;
 import com.clinic.conexion.Conexion;
 
 /**
- * Servlet implementation class ServletAddMedicacion
+ * Servlet implementation class ServletEliminarMedicacion
  */
-@WebServlet("/ServletAddMedicacion.do")
-public class ServletAddMedicacion extends HttpServlet {
+@WebServlet("/ServletEliminarMedicacion.do")
+public class ServletEliminarMedicacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletAddMedicacion() {
+    public ServletEliminarMedicacion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -50,15 +48,10 @@ public class ServletAddMedicacion extends HttpServlet {
 		// TODO Auto-generated method stub
 		RequestDispatcher des=null;
 		DetalleMedicacion det=new DetalleMedicacion();
-		det.setCantidad(request.getParameter("cantidad"));
-		det.setDetalle(request.getParameter("detalle").trim());
-		det.setExiste(1);
-		det.setIdMedicacion((Medicacion)(Conexion.getInstancia().Buscar(Medicacion.class, Integer.parseInt(request.getParameter("idMedicacion")))));
-		det.setIdMedicina((Medicina)(Conexion.getInstancia().Buscar(Medicina.class, Integer.parseInt(request.getParameter("idMedicina")))));
-		int total=0;
-		total=Integer.parseInt(det.getCantidad()) * Integer.parseInt(det.getIdMedicina().getPrecio());
-		det.setTotal(String.valueOf(total));
-		Conexion.getInstancia().agregar(det);
+		det= (DetalleMedicacion)Conexion.getInstancia().Buscar(DetalleMedicacion.class, Integer.parseInt(request.getParameter("idDetalleMedicacion")));
+		det.setExiste(0);
+		Conexion.getInstancia().modificar(det);
+		
 		
 		List<Paciente> pacientes=new ArrayList<Paciente>(Conexion.getInstancia().listaPacientes("from Paciente where existe=1"));
 		List<Usuario> doctores=new ArrayList<Usuario>(Conexion.getInstancia().listaUsuarios("from Usuario where existe=1"));
@@ -86,15 +79,15 @@ public class ServletAddMedicacion extends HttpServlet {
 				med=m;
 			}
 		}
-		double totalf=0;
+		double total=0;
 		for(DetalleMedicacion dm: detmedi){
 			if(dm.getIdMedicacion().getIdMedicacion()==med.getIdMedicacion()){
 				request.setAttribute("medicaciones", "si");
-				totalf=totalf + Double.parseDouble(dm.getTotal());
+				total=total + Double.parseDouble(dm.getTotal());
 				detmedifinal.add(dm);
 			}
 		}
-		request.setAttribute("totalpagar", totalf);	
+		request.setAttribute("totalpagar", total);
 		request.setAttribute("idMedicacion", med.getIdMedicacion());
 		request.setAttribute("medicinaasignada", detmedifinal);
 		request.setAttribute("medicinas", Conexion.getInstancia().hacerConsulta("from Medicina where existe=1"));
@@ -104,7 +97,8 @@ public class ServletAddMedicacion extends HttpServlet {
 		des=request.getRequestDispatcher("Visita/Index.jsp");
 		des.forward(request, response);
 		
-				
+		
+		
 	}
 
 }

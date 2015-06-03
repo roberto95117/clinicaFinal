@@ -140,3 +140,39 @@
   </div>
 </div><!-- Termina Ventana Emergente-->
 
+
+
+
+ <!-- VENTANA EMERGENTE PARA AGREGAR Paciente -->
+		<div class="modal fade bs-example-modal-sm" id="finalizarVisita" tabindex="-1" role="dialog" aria-labelledby="Agregar Paciente" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="finalizarVisita-1" >Finalizar Visita</h4>
+      </div>
+      <div class="modal-body">
+                
+         <form action="ServletFinalizarVisita.do" method="post" class="form-horizontal" role="form">
+                     
+            <label>Total a pagar:</label>       	
+        	<div class="input-group">
+        	<input type="hidden" name="citaeliminar" value="${cita.getIdCita() }">
+				<input  name="total" class="form-control" type="text" placeholder="${totalpagar}" disabled>
+	        	<span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+        	</div>             
+				<br/>
+			
+            
+              <br />
+              <div class="modal-footer">
+        <button  id="btnadd" style="font-family:space age" data-toggle="tooltip" data-placement="bottom" title="Agregar" type="submit" class="btn btn-success btn-sm "><span class="glyphicon glyphicon-ok"></span></button>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div><!-- Termina Ventana Emergente-->
+
+
