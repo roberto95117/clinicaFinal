@@ -10,7 +10,7 @@
       <span class="icon-bar"></span>
     </button>
     <a>
-    		<img  src="../Resources/Images/logo.png" class="img img-responsive"> 		
+    		<img  src="Resources/Images/logo-222.png" class="img img-responsive"> 		
     </a>
     
   </div>
