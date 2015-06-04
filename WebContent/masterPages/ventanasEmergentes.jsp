@@ -143,7 +143,7 @@
 
 
 
- <!-- VENTANA EMERGENTE PARA AGREGAR Paciente -->
+ <!-- VENTANA EMERGENTE finalizar visita -->
 		<div class="modal fade bs-example-modal-sm" id="finalizarVisita" tabindex="-1" role="dialog" aria-labelledby="Agregar Paciente" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -163,6 +163,49 @@
         	</div>             
 				<br/>
 			
+            
+              <br />
+              <div class="modal-footer">
+        <button  id="btnadd" style="font-family:space age" data-toggle="tooltip" data-placement="bottom" title="Agregar" type="submit" class="btn btn-success btn-sm "><span class="glyphicon glyphicon-ok"></span></button>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div><!-- Termina Ventana Emergente-->
+
+
+ <!-- VENTANA EMERGENTE agregar medicina -->
+		<div class="modal fade bs-example-modal-sm" id="addmedicina" tabindex="-1" role="dialog" aria-labelledby="Agregar Medicina" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="addmedicina-1" >Agregar Medicina</h4>
+      </div>
+      <div class="modal-body">
+                
+         <form action="ServletAgregarMedicina.do" method="post" class="form-horizontal" role="form">
+                     
+            <label>Nombre:</label>       	
+        	<div class="input-group">
+				<input  name="nombremedicina" class="form-control" type="text" placeholder="nombre del medicamento" required>
+	        	<span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+        	</div>             
+			<br/>
+			<label>Precio:</label>       	
+        	<div class="input-group">
+				<input onkeypress="return justNumbers(event);" maxlength="6"  name="preciomedicina" class="form-control" type="text" placeholder="precio del medicamento" required>
+	        	<span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+        	</div>             
+			<br/>
+			<label>Cantidad Disponible:</label>       	
+        	<div class="input-group">
+				<input onkeypress="return justNumbers(event);" maxlength="5"  name="cantidadmedicina" class="form-control" type="text" placeholder="cantidad del medicamento" required>
+	        	<span class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></span>
+        	</div>             
+			<br/>
             
               <br />
               <div class="modal-footer">
