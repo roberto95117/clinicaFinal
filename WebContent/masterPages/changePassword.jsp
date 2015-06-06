@@ -10,6 +10,7 @@
 			$( "#effect" ).effect( "slide", "width: 100%, height: 100%", 900, "10000" );
 	});
 	</script>
+	<title>Clinica</title>
 </head>
 <body>
 	<%@ include file="../masterPages/menu.jsp"%>

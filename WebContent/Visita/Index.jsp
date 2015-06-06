@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Clinica - Visita Iniciada</title>
+<title>Clinica</title>
 	<%@ include file="../masterPages/include.ui.jquery.bootstrap.jsp" %>
 </head>
 <body>

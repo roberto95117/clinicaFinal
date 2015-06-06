@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Clinica - Citas</title>
+<title>Clinica</title>
 <%@ include file="../masterPages/include.ui.jquery.bootstrap.jsp" %>
 	<script>
 	$(document).ready(function (){
 			$( "#effect" ).effect( "slide", "width: 100%, height: 100%", 900, "10000" );
 	});
 	</script>
+	
 </head>
 <body>
 
